@@ -4,6 +4,9 @@ import tkinter as tk
 from tkinter import ttk
 
 win = tk.Tk()
+win.title("ONet client")
+win.geometry("400x200")
+win.configure(bg='grey')
 
 def invia_comandi(s, comando):
     global ffre
@@ -30,9 +33,9 @@ def ope():
     
     ib, port = serie.get(), episodio.get()
     
-    tit = tk.Label(text='Our Net')
+    tit = tk.Label(text='Our Net', bg='grey')
     req = tk.Entry()
-    sei = tk.Button(text='Search', command=lolf)
+    sei = tk.Button(text='Get', bg='grey', command=lolf)
     out = tk.Label(text='-   -   -')
     
     conn_sub_server((ib, int(port)), 'index')
@@ -61,11 +64,11 @@ def lolf():
 ib = art = port = req = out = ferb = art = canc = fin = None
 ffre = '---'
 
-b = tk.Label(text='ip')
+b = tk.Label(text='ip', bg='grey')
 serie = tk.Entry()
-c = tk.Label(text='port')
+c = tk.Label(text='port', bg='grey')
 episodio = tk.Entry()
-but = tk.Button(text='Connect', command=ope)
+but = tk.Button(text='Connect',bg='grey', command=ope)
 
 b.pack()
 serie.pack()

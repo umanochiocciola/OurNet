@@ -10,7 +10,13 @@ except: deferr = "Error: no item found."
 def ricevi_comandi(conn):
     richiesta = conn.recv(4096)
     stuff = richiesta.decode().split('_')
-    data = banca.get(richiesta.decode(), deferr).replace('-', ' ')
+    print(stuff)
+    data = banca.get(richiesta.decode().split('/')[0], deferr)
+    
+    while isinstance(data, dict):
+        if not('/' in richiesta.decode()): richiesta = richiesta.decode() + '/index'; richiesta = richiesta.encode()
+        data = data.get(richiesta.decode().split('/')[1], deferr)
+    
     conn.sendall(data.encode())
 
 
